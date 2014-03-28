@@ -6,12 +6,11 @@ Making your HTML pages readable for everyone on the web.
 
 
 ## Getting started
-- Pull the `.css` files from the `/library` folder
 - Load the css file for the desired language onto your page
 - Write languified words by using `<span>` tags with special classes
 - Documentation for special classes found in `/index.html` 
-- Yes, just like font awesome!
-- Tip: 
+- Yes, it's just like font awesome!
+- Fun tip for developers: 
     - Let end-users dynamically switch languages to whatever they like
     - Simply use javascript events to swap out the loaded css file with another
 
