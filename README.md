@@ -1,8 +1,7 @@
 languify
 ========
-
-Global languages as easy as Font Awesome.
-Making your HTML pages readable for everyone on the web.
+- Global languages as easy as Font Awesome
+- Making your HTML pages readable for everyone on the web
 
 
 ## Getting started
