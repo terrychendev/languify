@@ -22,5 +22,4 @@ languify
 
 
 ## References
-- Heavily inspired by [Font Awesome](http://fontawesome.io/)
-- Open sourced via [Mozilla Public Liscense v2.0](LICENSE)
+- Inspired by [Font Awesome](http://fontawesome.io/)
