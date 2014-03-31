@@ -1,3 +1,15 @@
+/*******************
+    LANGUIFY FUNCTIONS
+*******************/ 
+    $('[data-langcode]').click(function(){
+        var langcode = $(this).data('langcode');
+        $('.language-loader').attr('href', '/library/'+langcode+'.css');
+    });
+
+
+/*******************
+    GENERAL HELPER FUNCTIONS
+*******************/ 
     //Toggles the view of channels on each product
     $('[data-mytoggler]').click(function(){
         var toToggle = $(this).data('mytoggler');
@@ -13,10 +25,6 @@
     $('.btn#user-logout').click(function(){
         navigator.id.logout()
     });
-
-    
-    
-
     
     /*******************
         Adapted from: 
