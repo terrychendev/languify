@@ -59,6 +59,7 @@
         </div>
 
         <div class="container">
+            <!--
             <div class="table-responsive">
                 <table class="table table-hover table-condensed">
                     <thead>
@@ -75,6 +76,24 @@
                     </tbody>
                 </table>
             </div>
+            -->
+             <div class="table-responsive">
+                <table class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Word [English]</th>
+                            <th>French</th>
+                            <th>Spanish</th>
+                            <th>Chinese(Triditional)</th>
+                            <th>Chinese(Simplified)</th>
+                            <th>Russian</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
 
             <!-- Footer -->
             <footer>
