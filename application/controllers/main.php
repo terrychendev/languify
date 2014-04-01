@@ -17,16 +17,19 @@ class Main extends CI_Controller {
         $languages = $this->language->retrieve();
         $words = $this->word->retrieve();
         
-        foreach( $words as $key => $word ){
-            $words[$key] = (array) $word;
-            $words[$key]['translations'] = $this->translation->retrieve( array('word_id'=>$word->id) );
+        $temp = array();
+        $translations = $this->translation->retrieve();
+        foreach( $translations as $translation ){
+            $temp[$translation->word_id][$translation->language_id] = $translation->translation;
         }
+        $translations = $temp;
         
         // Send the resulting data array into the view
         $this->blade->render('main', 
             array(
                 'languages' => $languages,
-                'words'     => $words
+                'words'     => $words,
+                'translations' => $translations
             )
         );
     }

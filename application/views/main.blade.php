@@ -39,11 +39,13 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="navbar-form navbar-right">
+                        {{--
                         @foreach ( $languages as $language )
                             <button class="btn btn-default" data-langID="{{ $language->id }}"> 
                                 {{ strtoupper($language->code) }} 
                             </button>
                         @endforeach
+                        --}}
                     </div>
                 </div><!--/.navbar-collapse -->
             </div>
@@ -59,39 +61,41 @@
         </div>
 
         <div class="container">
-            <!--
-            <div class="table-responsive">
-                <table class="table table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Display Text</th>
-                            <th>HTML</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            @foreach ( $words as $word )                             
-                                <td>{{ $word['word'] }}</td>
-                                <td>&lt;span class="lf lf-{{ $word['tag'] }}"&gt;&lt;/span&gt;</td>
-                            @endforeach
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            -->
              <div class="table-responsive">
                 <table class="table table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th>Word [English]</th>
-                            <th>French</th>
-                            <th>Spanish</th>
-                            <th>Chinese(Triditional)</th>
-                            <th>Chinese(Simplified)</th>
-                            <th>Russian</th>
+                            @foreach( $languages as $language )
+                                <th title="{{ ucfirst($language->name) }}" data-langID="{{ $language->id }}">
+                                    {{ strtoupper($language->code) }}
+                                </th>
+                            @endforeach
+                            <th>Actions</th> 
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ( $words as $word )                             
+                            <tr>
+                                @foreach ( $languages as $language )
+                                    @if ( $language->code == 'en' )
+                                        <td>
+                                            {{ $word->word }}
+                                        </td>
+                                    @else
+                                        <td>
+                                            @if ( isset($translations[$word->id][$language->id]) )
+                                                {{ $translations[$word->id][$language->id] }}
+                                            @endif
+                                        </td>
+                                    @endif
+                                @endforeach
+                                <td>
+                                    <button class="btn btn-xs btn-default">
+                                        <i class="fa fa-pencil"></i> Edit
+                                    </button>
+                                </td>        
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
