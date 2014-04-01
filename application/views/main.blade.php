@@ -54,7 +54,10 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h1>Getting started</h1>
+                <img class="img-circle pull-left" width="17.5%" src="/assets/img/nerds.jpg">
+                <h1>
+                    Nerds getting started
+                </h1>
                 <p>
                     YOLO. Swag. Languify v0.1.
                 </p>
