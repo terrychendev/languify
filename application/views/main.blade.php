@@ -39,13 +39,14 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="navbar-form navbar-right">
-                        {{--
-                        @foreach ( $languages as $language )
-                            <button class="btn btn-default" data-langID="{{ $language->id }}"> 
+                        @foreach ( $all_languages as $language )
+                            <button class="btn btn-default" data-lang-code="{{ $language->code }}"> 
                                 {{ strtoupper($language->code) }} 
                             </button>
                         @endforeach
-                        --}}
+                        <button class="btn btn-success" id="filter-languages">
+                            <i class="fa fa-filter fa-lg"></i> Filter
+                        </button>
                     </div>
                 </div><!--/.navbar-collapse -->
             </div>
@@ -77,17 +78,17 @@
                         @foreach ( $words as $word )                             
                             <tr>
                                 @foreach ( $languages as $language )
+                                    <td data-wordID="{{ $word->id }}" data-languageID="{{ $language->id }}">
                                     @if ( $language->code == 'en' )
-                                        <td>
-                                            {{ $word->word }}
-                                        </td>
+                                        {{-- Just print the english word --}}
+                                        {{ $word->word }}
+                                    @elseif ( isset($translations[$word->id][$language->id]) )
+                                        {{-- This word has a translation in this language, print it --}}
+                                        {{ $translations[$word->id][$language->id] }}
                                     @else
-                                        <td>
-                                            @if ( isset($translations[$word->id][$language->id]) )
-                                                {{ $translations[$word->id][$language->id] }}
-                                            @endif
-                                        </td>
+                                        {{-- This word does not have a translation in this language, do nothing --}}
                                     @endif
+                                    </td>
                                 @endforeach
                                 <td>
                                     <button class="btn btn-xs btn-default">

@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1396328804;s:3:"ttl";i:3600;s:4:"data";s:5987:"<!DOCTYPE html>
+a:3:{s:4:"time";i:1396337722;s:3:"ttl";i:3600;s:4:"data";s:6337:"<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -39,14 +39,14 @@ a:3:{s:4:"time";i:1396328804;s:3:"ttl";i:3600;s:4:"data";s:5987:"<!DOCTYPE html>
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="navbar-form navbar-right">
-                        <?php /* 
-                        <?php foreach ( $languages as $language ): ?>
-                            <button class="btn btn-default" data-langID="<?php echo  $language->id ; ?>"> 
+                        <?php foreach ( $all_languages as $language ): ?>
+                            <button class="btn btn-default" data-lang-code="<?php echo  $language->code ; ?>"> 
                                 <?php echo  strtoupper($language->code) ; ?> 
                             </button>
                         <?php endforeach; ?>
-                         */ ?>
-
+                        <button class="btn btn-success" id="filter-languages">
+                            <i class="fa fa-filter fa-lg"></i> Filter
+                        </button>
                     </div>
                 </div><!--/.navbar-collapse -->
             </div>
@@ -78,17 +78,14 @@ a:3:{s:4:"time";i:1396328804;s:3:"ttl";i:3600;s:4:"data";s:5987:"<!DOCTYPE html>
                         <?php foreach ( $words as $word ): ?>                             
                             <tr>
                                 <?php foreach ( $languages as $language ): ?>
+                                    <td data-wordID="<?php echo  $word->id ; ?>" data-languageID="<?php echo  $language->id ; ?>">
                                     <?php if ( $language->code == 'en' ): ?>
-                                        <td>
-                                            <?php echo  $word->word ; ?>
-                                        </td>
+                                        <?php //  Just print the english word  ?>                                        <?php echo  $word->word ; ?>
+                                    <?php elseif ( isset($translations[$word->id][$language->id]) ): ?>
+                                        <?php //  This word has a translation in this language, print it  ?>                                        <?php echo  $translations[$word->id][$language->id] ; ?>
                                     <?php else: ?>
-                                        <td>
-                                            <?php if ( isset($translations[$word->id][$language->id]) ): ?>
-                                                <?php echo  $translations[$word->id][$language->id] ; ?>
-                                            <?php endif; ?>
-                                        </td>
-                                    <?php endif; ?>
+                                        <?php //  This word does not have a translation in this language, do nothing  ?>                                    <?php endif; ?>
+                                    </td>
                                 <?php endforeach; ?>
                                 <td>
                                     <button class="btn btn-xs btn-default">

@@ -1,11 +1,20 @@
 /*******************
     LANGUIFY FUNCTIONS
 *******************/ 
-    $('[data-langID]').click(function(){
-        var langID = $(this).data('langID');
-        alert('Using JS to switch languages');
+    $('[data-lang-code]').click(function(){
+        $(this).toggleClass('active');
     });
 
+    $('.btn#filter-languages').click(function(){
+        var queryValues = ''
+        $('[data-lang-code].active').each(function(key){
+            queryValues += $(this).data('lang-code') + ',';
+        });
+        
+        if ( queryValues != '' ) {
+            window.location.href = "?languages="+queryValues;
+        }
+    });
 
 /*******************
     GENERAL HELPER FUNCTIONS
