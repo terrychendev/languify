@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1396248814;s:3:"ttl";i:3600;s:4:"data";s:4505:"<!DOCTYPE html>
+a:3:{s:4:"time";i:1396314431;s:3:"ttl";i:3600;s:4:"data";s:4657:"<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -20,7 +20,6 @@ a:3:{s:4:"time";i:1396248814;s:3:"ttl";i:3600;s:4:"data";s:4505:"<!DOCTYPE html>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.css">
         
         <link rel="stylesheet" href="/assets/css/main.css">
-        <link rel="stylesheet" href="/library/en.css" class="language-loader">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -40,10 +39,11 @@ a:3:{s:4:"time";i:1396248814;s:3:"ttl";i:3600;s:4:"data";s:4505:"<!DOCTYPE html>
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="navbar-form navbar-right">
-                        <button class="btn btn-default" data-langcode="en"> EN </button>
-                        <button class="btn btn-default" data-langcode="es"> ES </button>
-                        <button class="btn btn-default" data-langcode="fr"> FR </button>
-                        <button class="btn btn-default" data-langcode="zh"> ZH </button>
+                        <?php foreach ( $languages as $language ): ?>
+                            <button class="btn btn-default" data-langID="<?php echo  $language->id ; ?>"> 
+                                <?php echo  strtoupper($language->code) ; ?> 
+                            </button>
+                        <?php endforeach; ?>
                     </div>
                 </div><!--/.navbar-collapse -->
             </div>
@@ -69,8 +69,10 @@ a:3:{s:4:"time";i:1396248814;s:3:"ttl";i:3600;s:4:"data";s:4505:"<!DOCTYPE html>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="lf lf-login"></span></td>
-                            <td>&lt;span class="lf lf-login"&gt;&lt;/span&gt;</td>
+                            <?php foreach ( $words as $word ): ?>                             
+                                <td><?php echo  $word['word'] ; ?></td>
+                                <td>&lt;span class="lf lf-<?php echo  $word['tag'] ; ?>"&gt;&lt;/span&gt;</td>
+                            <?php endforeach; ?>
                         </tr>
                     </tbody>
                 </table>
@@ -87,6 +89,7 @@ a:3:{s:4:"time";i:1396248814;s:3:"ttl";i:3600;s:4:"data";s:4505:"<!DOCTYPE html>
         <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script> var words = <?php echo  json_encode($words) ; ?> </script>
         <script src="/assets/js/main.js"></script>
     </body>
 </html>

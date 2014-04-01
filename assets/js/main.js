@@ -1,9 +1,9 @@
 /*******************
     LANGUIFY FUNCTIONS
 *******************/ 
-    $('[data-langcode]').click(function(){
-        var langcode = $(this).data('langcode');
-        $('.language-loader').attr('href', '/library/'+langcode+'.css');
+    $('[data-langID]').click(function(){
+        var langID = $(this).data('langID');
+        alert('Using JS to switch languages');
     });
 
 

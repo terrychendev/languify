@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.css">
         
         <link rel="stylesheet" href="/assets/css/main.css">
-        <link rel="stylesheet" href="/library/en.css" class="language-loader">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -40,10 +39,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="navbar-form navbar-right">
-                        <button class="btn btn-default" data-langcode="en"> EN </button>
-                        <button class="btn btn-default" data-langcode="es"> ES </button>
-                        <button class="btn btn-default" data-langcode="fr"> FR </button>
-                        <button class="btn btn-default" data-langcode="zh"> ZH </button>
+                        @foreach ( $languages as $language )
+                            <button class="btn btn-default" data-langID="{{ $language->id }}"> 
+                                {{ strtoupper($language->code) }} 
+                            </button>
+                        @endforeach
                     </div>
                 </div><!--/.navbar-collapse -->
             </div>
@@ -69,8 +69,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="lf lf-login"></span></td>
-                            <td>&lt;span class="lf lf-login"&gt;&lt;/span&gt;</td>
+                            @foreach ( $words as $word )                             
+                                <td>{{ $word['word'] }}</td>
+                                <td>&lt;span class="lf lf-{{ $word['tag'] }}"&gt;&lt;/span&gt;</td>
+                            @endforeach
                         </tr>
                     </tbody>
                 </table>
@@ -87,6 +89,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script> var words = {{ json_encode($words) }} </script>
         <script src="/assets/js/main.js"></script>
     </body>
 </html>
