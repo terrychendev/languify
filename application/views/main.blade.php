@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.css">
-        
+        <link rel="stylesheet" href="/library/zh.css">
         <link rel="stylesheet" href="/assets/css/main.css">
     </head>
     <body>
@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        Languify
+                        Languify <span class="fy-dislike"></span>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">

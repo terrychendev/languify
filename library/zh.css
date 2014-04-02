@@ -1,7 +1,5 @@
-/* ==========================================================================
-    Chinese (Simplified)
-    ========================================================================== */
-
-    span.lf-login:before {
-        content: '注册';
-    }
+span.fy-like:before{content:'喜欢';}
+span.fy-dislike:before{content:'不喜欢';}
+span.fy-:before{content:'大笔啊asd';}
+span.fy-hello:before{content:'gg';}
+span.fy-hallaluja-asdasd:before{content:'hallaluja asdasd';}

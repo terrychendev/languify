@@ -2,6 +2,15 @@
 
 class translation extends CI_Model{
     
+    function retrieve_assoc( $data = array() ){
+        $temp = array();
+        $translations = $this->retrieve( $data );
+        foreach( $translations as $translation ){
+            $temp[$translation->word_id][$translation->language_id] = $translation->translation;
+        }
+        return $temp;
+    }
+
     // BEGIN BASIC CRUD FUNCTIONALITY
 
     function create( $data = array() ){
