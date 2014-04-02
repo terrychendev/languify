@@ -5,9 +5,6 @@ class Main extends CI_Controller {
     function __construct() {
         parent::__construct();
         // Autoloaded Config, Helpers, Models 
-        $this->load->model('language');
-        $this->load->model('word');
-        $this->load->model('translation');
     }
     
 	public function index() {
@@ -37,11 +34,7 @@ class Main extends CI_Controller {
         // Prepares the translations
         // Each combination of word-language IDs as array keys link to a translated word 
         $temp = array();
-        $translations = $this->translation->retrieve();
-        foreach( $translations as $translation ){
-            $temp[$translation->word_id][$translation->language_id] = $translation->translation;
-        }
-        $translations = $temp;
+        $translations = $this->translation->retrieve_assoc();
         
         // Send the resulting data array into the view
         $this->blade->render('main', 

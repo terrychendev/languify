@@ -1,7 +1,5 @@
-/* ==========================================================================
-    French
-    ========================================================================== */
-
-    span.lf-login:before {
-        content: 'Identifiant';
-    }
+span.fy-like:before{content:'aimer';}
+span.fy-dislike:before{content:'dislike';}
+span.fy-:before{content:'gg';}
+span.fy-hello:before{content:'gg';}
+span.fy-hallaluja-asdasd:before{content:'hallaluja asdasd';}

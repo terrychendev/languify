@@ -6,9 +6,6 @@ class Words extends REST_Controller {
     function __construct() {
         parent::__construct();
         // Autoloaded Config, Helpers, Models
-        $this->load->model('language');
-        $this->load->model('word');
-        $this->load->model('translation');
     }
 
     // Used to create a new group in the DB
