@@ -8,8 +8,10 @@ class Core extends CI_Controller {
     }
     
     public function compile() {
+        // Retrieves false if no secret is specified
         $key = $this->input->get('secret');
         
+        //   $key == 'supersecretpassword' before production
         if ( $key !== false ) {
             // Build CSS for english
             $words = $this->word->retrieve();
