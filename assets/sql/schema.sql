@@ -31,18 +31,23 @@ CREATE TABLE `translation` (
    UNIQUE KEY (`language_id`, `word_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+
+
 INSERT INTO `language` (`id`, `code`, `name`) VALUES
 ('1', 'en',       'english'),
-('2', 'zh',       'chinese'),
-('3', 'fr',       'french'),
-('4', 'es',       'spanish');
+('2', 'zh-tw',    'chinese_triditional'),
+('3', 'zh-cn',    'chinese_simplified'),
+('4', 'fr',       'french'),
+('5', 'es',       'spanish');
+
 
 INSERT INTO `word` (`id`, `tag`, `word`) VALUES
 ('1', 'like',     'like');
 
 INSERT INTO `translation` (`language_id`, `word_id`, `translation`) VALUES
-('2',    '1',     '喜欢'),
-('3',    '1',     'aimer'),
-('4',    '1',     'gusta');
+('2',    '1',     '喜歡'),
+('3',    '1',     '喜欢'),
+('4',    '1',     'aimer');
+('5',    '1',     'gusta')
 
 

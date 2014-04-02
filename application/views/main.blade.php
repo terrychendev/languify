@@ -74,7 +74,6 @@
                                     {{ strtoupper($language->code) }}
                                 </th>
                             @endforeach
-                            <th>Actions</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -92,12 +91,7 @@
                                         {{-- This word does not have a translation in this language, do nothing --}}
                                     @endif
                                     </td>
-                                @endforeach
-                                <td>
-                                    <button class="btn btn-xs btn-default">
-                                        <i class="fa fa-pencil"></i> Edit
-                                    </button>
-                                </td>        
+                                @endforeach     
                             </tr>
                         @endforeach
                     </tbody>
@@ -118,6 +112,7 @@
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script> var words = {{ json_encode($words) }} </script>
         <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/app.js"></script>
     </body>
 </html>
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+a:3:{s:4:"time";i:1396412420;s:3:"ttl";i:3600;s:4:"data";s:6204:"<!DOCTYPE html>
+=======
 a:3:{s:4:"time";i:1396413041;s:3:"ttl";i:3600;s:4:"data";s:6553:"<!DOCTYPE html>
+>>>>>>> upstream/master
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -74,7 +78,6 @@ a:3:{s:4:"time";i:1396413041;s:3:"ttl";i:3600;s:4:"data";s:6553:"<!DOCTYPE html>
                                     <?php echo  strtoupper($language->code) ; ?>
                                 </th>
                             <?php endforeach; ?>
-                            <th>Actions</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -89,12 +92,7 @@ a:3:{s:4:"time";i:1396413041;s:3:"ttl";i:3600;s:4:"data";s:6553:"<!DOCTYPE html>
                                     <?php else: ?>
                                         <?php //  This word does not have a translation in this language, do nothing  ?>                                    <?php endif; ?>
                                     </td>
-                                <?php endforeach; ?>
-                                <td>
-                                    <button class="btn btn-xs btn-default">
-                                        <i class="fa fa-pencil"></i> Edit
-                                    </button>
-                                </td>        
+                                <?php endforeach; ?>     
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -115,6 +113,7 @@ a:3:{s:4:"time";i:1396413041;s:3:"ttl";i:3600;s:4:"data";s:6553:"<!DOCTYPE html>
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script> var words = <?php echo  json_encode($words) ; ?> </script>
         <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/app.js"></script>
     </body>
 </html>
 

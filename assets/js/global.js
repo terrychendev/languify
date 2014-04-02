@@ -6,7 +6,7 @@ var masterData = [],
 	//Number of languages (ohter than primary english)
 	lang_num,
 	//Number of database record
-	db_record,
+	db_record;
 
 
 //Initialize 2D array
