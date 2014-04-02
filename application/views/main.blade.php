@@ -112,6 +112,7 @@
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script> var words = {{ json_encode($words) }} </script>
         <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/app.js"></script>
     </body>
 </html>
 
