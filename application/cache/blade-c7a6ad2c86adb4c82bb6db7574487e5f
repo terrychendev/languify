@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1396339131;s:3:"ttl";i:3600;s:4:"data";s:6474:"<!DOCTYPE html>
+a:3:{s:4:"time";i:1396402966;s:3:"ttl";i:3600;s:4:"data";s:6154:"<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -74,7 +74,6 @@ a:3:{s:4:"time";i:1396339131;s:3:"ttl";i:3600;s:4:"data";s:6474:"<!DOCTYPE html>
                                     <?php echo  strtoupper($language->code) ; ?>
                                 </th>
                             <?php endforeach; ?>
-                            <th>Actions</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -89,12 +88,7 @@ a:3:{s:4:"time";i:1396339131;s:3:"ttl";i:3600;s:4:"data";s:6474:"<!DOCTYPE html>
                                     <?php else: ?>
                                         <?php //  This word does not have a translation in this language, do nothing  ?>                                    <?php endif; ?>
                                     </td>
-                                <?php endforeach; ?>
-                                <td>
-                                    <button class="btn btn-xs btn-default">
-                                        <i class="fa fa-pencil"></i> Edit
-                                    </button>
-                                </td>        
+                                <?php endforeach; ?>     
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
