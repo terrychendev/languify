@@ -16,7 +16,7 @@ class Core extends CI_Controller {
             $english_css = '';
             foreach ($words as $key => $word) {
                 $english_css .= "span.fy-".$word->tag.":before{content:'".$word->word."';}
-"; // Need this to print with line break and no spaces
+";              // Need this to print with line break and no spaces
             }
             $this->_write_to_library( 'en', $english_css );
             echo "<p>" . $english_css . "</p>";
@@ -29,11 +29,11 @@ class Core extends CI_Controller {
                 foreach ($words as $word) {
                     if ( isset($translations[$word->id][$language->id]) ) {
                         $translation_css .= "span.fy-".$word->tag.":before{content:'".$translations[$word->id][$language->id]."';}
-"; // Need this to print with line break and no spaces
+";                      // Need this to print with line break and no spaces
                     
                     } else {
                         $translation_css .= "span.fy-".$word->tag.":before{content:'".$word->word."';}
-"; // Need this to print with line break and no spaces
+";                      // Need this to print with line break and no spaces
                     }
                 }
                 $this->_write_to_library( $language->code, $translation_css );
