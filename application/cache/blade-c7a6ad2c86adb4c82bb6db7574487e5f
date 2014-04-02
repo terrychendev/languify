@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-a:3:{s:4:"time";i:1396412420;s:3:"ttl";i:3600;s:4:"data";s:6204:"<!DOCTYPE html>
-=======
-a:3:{s:4:"time";i:1396413041;s:3:"ttl";i:3600;s:4:"data";s:6553:"<!DOCTYPE html>
->>>>>>> upstream/master
+a:3:{s:4:"time";i:1396478117;s:3:"ttl";i:3600;s:4:"data";s:6353:"<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -70,6 +66,7 @@ a:3:{s:4:"time";i:1396413041;s:3:"ttl";i:3600;s:4:"data";s:6553:"<!DOCTYPE html>
 
         <div class="container">
              <div class="table-responsive">
+                <i class="fa fa-plus-square fa-2x"> Add New Words</i>
                 <table class="table table-hover table-condensed">
                     <thead>
                         <tr>

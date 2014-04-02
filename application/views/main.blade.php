@@ -66,6 +66,7 @@
 
         <div class="container">
              <div class="table-responsive">
+                <i class="fa fa-plus-square fa-2x"> Add New Words</i>
                 <table class="table table-hover table-condensed">
                     <thead>
                         <tr>
