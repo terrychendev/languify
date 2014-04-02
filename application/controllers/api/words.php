@@ -31,14 +31,30 @@ class Words extends REST_Controller {
                 );
             
                 $word_id = $this->word->create( $new_word );
-                echo $word_id;
+                echo json_encode( 
+                    array(
+                        'status'  => 'success',
+                        'message' => 'Word insert successful',
+                        'word_id' => $word_id
+                    )
+                );
 
             } else {                    
-                echo 'Tag already exists.';
+                echo json_encode( 
+                    array(
+                        'status'  => 'fail',
+                        'message' => 'Tag already exists'
+                    )
+                );
             }
 
         } else {
-            echo 'Missing word parameter.';
+            echo json_encode( 
+                array(
+                    'status'  => 'fail',
+                    'message' => 'Missing word parameter'
+                )
+            );
         }
 
         return;
@@ -68,14 +84,29 @@ class Words extends REST_Controller {
                         'word' => $word
                     ) 
                 );
-                echo 'OK';   
+                echo json_encode( 
+                    array(
+                        'status'  => 'success',
+                        'message' => 'Word update successful'
+                    )
+                );  
             
             } else {
-                echo 'Nothing to update.';
+                echo json_encode( 
+                    array(
+                        'status'  => 'fail',
+                        'message' => 'Nothing to update'
+                    )
+                );
             }
 
         } else {
-            echo 'Missing word_id or word parameters.';
+            echo json_encode( 
+                array(
+                    'status'  => 'fail',
+                    'message' => 'Missing word_id or word parameters'
+                )
+            );
         }
 
         return;

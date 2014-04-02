@@ -38,7 +38,13 @@ class Translations extends REST_Controller {
                         'translation'  => $translation
                     )
                 );
-                echo 'OK';
+
+                echo json_encode( 
+                    array(
+                        'status'  => 'success',
+                        'message' => 'Translation update successful'
+                    )
+                );  
             } else {
                 // Version does not have a score yet. Do insert
                 $new_translation = array( 
@@ -47,10 +53,21 @@ class Translations extends REST_Controller {
                     'translation' => $translation  
                 );
                 $translation_id = $this->translation->create( $new_translation );
-                echo $translation_id;
+                echo json_encode( 
+                    array(
+                        'status'  => 'success',
+                        'message' => 'Translation insert successful',
+                        'translation_id' => $translation
+                    )
+                );  
             }
         } else {
-            echo 'Missing parameters.';
+            echo json_encode( 
+                array(
+                    'status'  => 'fail',
+                    'message' => 'Missing parameters'
+                )
+            );  
         }
 
         return;
