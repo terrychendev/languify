@@ -22,20 +22,28 @@ class Words extends REST_Controller {
             ); 
 
             if ( count($availability) == 0 ) {                        
-                $new_word = array( 
-                    'tag'  => url_title( $word ),
-                    'word' => $word
-                );
-            
-                $word_id = $this->word->create( $new_word );
-                echo json_encode( 
-                    array(
-                        'status'  => 'success',
-                        'message' => 'Word insert successful',
-                        'word_id' => $word_id
-                    )
-                );
-
+                if ( $word != '' && ctype_alpha($word) )
+                    $new_word = array( 
+                        'tag'  => url_title( $word ),
+                        'word' => $word
+                    );
+                
+                    $word_id = $this->word->create( $new_word );
+                    echo json_encode( 
+                        array(
+                            'status'  => 'success',
+                            'message' => 'Word insert successful',
+                            'word_id' => $word_id
+                        )
+                    );
+                } else {
+                    echo json_encode( 
+                        array(
+                            'status'  => 'fail',
+                            'message' => 'Word must contain alphabets'
+                        )
+                    );
+                }
             } else {                    
                 echo json_encode( 
                     array(
@@ -72,22 +80,30 @@ class Words extends REST_Controller {
             );
 
             if ( count($availability) > 0 ) {
-                $word_id = $this->word->update( 
-                    array(
-                        'id' => $word_id
-                    ),
-                    array(
+                if ( $word != '' && ctype_alpha($word) ) {
+                    $word_id = $this->word->update( 
+                        array(
+                            'id' => $word_id
+                        ),
+                        array(
 
-                        'word' => $word
-                    ) 
-                );
-                echo json_encode( 
-                    array(
-                        'status'  => 'success',
-                        'message' => 'Word update successful'
-                    )
-                );  
-            
+                            'word' => $word
+                        ) 
+                    );
+                    echo json_encode( 
+                        array(
+                            'status'  => 'success',
+                            'message' => 'Word update successful'
+                        )
+                    );
+                } else {
+                    echo json_encode( 
+                        array(
+                            'status'  => 'fail',
+                            'message' => 'Word must contain alphabets'
+                        )
+                    );
+                }
             } else {
                 echo json_encode( 
                     array(
