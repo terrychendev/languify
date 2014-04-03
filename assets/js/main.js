@@ -31,7 +31,18 @@
     });
 
     // Initializing table sorter
-    $('table').tablesorter();
+    var dataTable = $('table').dataTable({
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": false,
+        "sDom" : ''
+    });
+    $('input#search-box').on('keypress focusout', function(){
+        dataTable.fnFilter( $(this).val() );
+    });
 
     // Persona logout
     $('.btn#user-logout').click(function(){

@@ -51,7 +51,15 @@
 
         <div class="container">
              <div class="table-responsive">
-                <i class="fa fa-plus-square fa-2x"> Add New Words</i>
+                <div class="row">
+                    <div class="col-md-8">
+                        <i class="fa fa-plus-square fa-2x"> Add New Words</i>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="search-box" placeholder="Search words ...">
+                    </div>                    
+                </div>
+
                 <table class="table table-hover table-condensed">
                     <thead>
                         <tr>
@@ -98,7 +106,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        <script src="/assets/vendor/tablesorter/js/jquery.tablesorter.min.js"></script>
+        <script src="/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
         <script src="/assets/js/main.js"></script>
         <script src="/assets/js/app.js"></script>
     </body>
