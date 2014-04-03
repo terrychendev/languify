@@ -48,7 +48,7 @@ var	record = {
 							$.ajax({
 								url : '/api/translations',
 								data : data,
-								dataType: JSON,
+								dataType: "JSON",
 								type: "POST",
 								success : function ( res ) {
 									//self.replaceWith("Success");
@@ -61,26 +61,32 @@ var	record = {
 						}
 						//It is a PUT for primary
 						else if ( languageId === 1) {
-							//Put Request updates
-							var data = {
-								word_id : wordId,
-								word : new_string
-							}
-							//catch previous obj
-							var self = $( this );
-							//Ajax Words
-							$.ajax({
-								url : '/api/words',
-								data : data,
-								dataType: JSON,
-								type: "PUT",
-								success : function ( res ) {
-									self.replaceWith("Success");
-								},
-								error : function ( err ) {
-									alert(err);
+							// Validate Primary
+							if ( new_string.search(/\W|\d/g) < 0 ) {
+								//Put Request updates
+								var data = {
+									word_id : wordId,
+									word : new_string
 								}
-							});
+								//catch previous obj
+								var self = $( this );
+								//Ajax Words
+								$.ajax({
+									url : '/api/words',
+									data : data,
+									dataType: "JSON",
+									type: "PUT",
+									success : function ( res ) {
+										self.replaceWith("Success");
+									},
+									error : function ( err ) {
+										alert(err);
+									}
+								});
+							}
+							else {
+								// Validation Fails, Primary must be a legit word
+							}
 						}
 
 					}
@@ -108,6 +114,7 @@ var	record = {
 				var new_string = $(this).val();
 				if ( new_string.search(/\W|\d/g) >= 0 ){
 					$( this ).parent().parent().remove("tr");
+					//Also output that the word must be legit (Cause: 1. user does not input anything 2. User put some dipshit)
 				}
 				else {
 					//Ajax Call POST Word
@@ -118,7 +125,7 @@ var	record = {
 					$.ajax({
 						url : '/api/words',
 						data : data,
-						dataType: JSON,
+						dataType: "JSON",
 						type: "POST",
 						success : function ( res ) {
 							//Check if duplicated data exists

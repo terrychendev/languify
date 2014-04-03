@@ -54,7 +54,7 @@ class Translations extends REST_Controller {
                     array(
                         'status'  => 'success',
                         'message' => 'Translation insert successful',
-                        'translation_id' => $translation
+                        'translation_id' => $translation_id
                     )
                 );  
             }
