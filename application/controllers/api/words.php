@@ -22,7 +22,7 @@ class Words extends REST_Controller {
             ); 
 
             if ( count($availability) == 0 ) {                        
-                if ( $word != '' && ctype_alpha($word) )
+                if ( $word != '' && ctype_alpha($word) ) {
                     $new_word = array( 
                         'tag'  => url_title( $word ),
                         'word' => $word

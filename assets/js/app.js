@@ -50,11 +50,12 @@ var	record = {
 								data : data,
 								dataType: "JSON",
 								type: "POST",
-								success : function ( res ) {
+								success : function ( response ) {
 									//self.replaceWith("Success");
+									console.log(response);
 								},
-								error : function ( jq, status, err ) {
-									console.log(jq);
+								error : function ( response, status, err ) {
+									console.log(response);
 									alert(err);
 								}
 							});
@@ -76,11 +77,12 @@ var	record = {
 									data : data,
 									dataType: "JSON",
 									type: "PUT",
-									success : function ( res ) {
-										self.replaceWith("Success");
+									success : function ( response ) {
+										//self.replaceWith("Success");
+										console.log(response);
 									},
-									error : function ( err ) {
-										alert(err);
+									error : function ( response ) {
+										console.log(response);
 									}
 								});
 							}
@@ -127,12 +129,13 @@ var	record = {
 						data : data,
 						dataType: "JSON",
 						type: "POST",
-						success : function ( res ) {
+						success : function ( response ) {
 							//Check if duplicated data exists
-							self.replaceWith("Success");
+							//self.replaceWith("Success");
+							console.log(response);
 						},
-						error : function ( err ) {
-							alert(err);
+						error : function ( response ) {
+							console.log(response);
 						}
 					});
 
