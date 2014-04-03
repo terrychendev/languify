@@ -98,7 +98,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        <script> var words = {{ json_encode($words) }} </script>
+        <script src="/assets/vendor/tablesorter/js/jquery.tablesorter.min.js"></script>
         <script src="/assets/js/main.js"></script>
         <script src="/assets/js/app.js"></script>
     </body>

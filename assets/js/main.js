@@ -17,7 +17,7 @@
     });
 
 /*******************
-    GENERAL HELPER FUNCTIONS
+    GENERAL EVENT BINDINGS
 *******************/ 
     //Toggles the view of channels on each product
     $('[data-mytoggler]').click(function(){
@@ -30,11 +30,17 @@
         position: { my: 'top right', at: 'bottom right' }
     });
 
+    // Initializing table sorter
+    $('table').tablesorter();
+
     // Persona logout
     $('.btn#user-logout').click(function(){
         navigator.id.logout()
     });
-    
+
+/*******************
+    GENERAL HELPER FUNCTIONS
+*******************/ 
     /*******************
         Adapted from: 
         http://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
