@@ -8,15 +8,17 @@ class Core extends CI_Controller {
     }
     
     public function compile() {
+        // Retrieves false if no secret is specified
         $key = $this->input->get('secret');
         
+        //   $key == 'supersecretpassword' before production
         if ( $key !== false ) {
             // Build CSS for english
             $words = $this->word->retrieve();
             $english_css = '';
             foreach ($words as $key => $word) {
-                $english_css .= "span.fy-".$word->tag.":before{content:'".$word->word."';}
-";
+                $english_css .= $this->_make_css_property( $word->tag, $word->word );
+                $english_css .= "\n";
             }
             $this->_write_to_library( 'en', $english_css );
             echo "<p>" . $english_css . "</p>";
@@ -28,12 +30,11 @@ class Core extends CI_Controller {
                 $translation_css = '';
                 foreach ($words as $word) {
                     if ( isset($translations[$word->id][$language->id]) ) {
-                        $translation_css .= "span.fy-".$word->tag.":before{content:'".$translations[$word->id][$language->id]."';}
-";
-                    
+                        $translation_css .= $this->_make_css_property( $word->tag, $translations[$word->id][$language->id] ); 
+                        $translation_css .= "\n";
                     } else {
-                        $translation_css .= "span.fy-".$word->tag.":before{content:'".$word->word."';}
-";
+                        $translation_css .= $this->_make_css_property( $word->tag, $word->word, $language->code );
+                        $translation_css .= "\n";
                     }
                 }
                 $this->_write_to_library( $language->code, $translation_css );
@@ -45,6 +46,17 @@ class Core extends CI_Controller {
         }
 
         return;
+    }
+
+    private function _make_css_property( $tag = '', $word = 'NIL', $translation_for = false ) {
+        if ( $translation_for === false ) {
+            // simple wrapper for making this word a css property 
+            return "span.fy-".$tag.":before{content:'".$word."';}";
+        } else {
+            // user has specified a language that this was supposed to convert into.
+            // maybe we can hyperlink the word into something that prompts the user to enter the languified version?
+            return "span.fy-".$tag.":before{content:'".$word." to ".$translation_for."';}"; 
+        }
     }
 
     private function _write_to_library( $language_code = '', $content = '' ) {

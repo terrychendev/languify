@@ -35,8 +35,8 @@ CREATE TABLE `translation` (
 
 INSERT INTO `language` (`id`, `code`, `name`) VALUES
 ('1', 'en',       'english'),
-('2', 'zh-tw',    'chinese_triditional'),
-('3', 'zh-cn',    'chinese_simplified'),
+('2', 'zh-tw',    'chinese traditional'),
+('3', 'zh-cn',    'chinese simplified'),
 ('4', 'fr',       'french'),
 ('5', 'es',       'spanish');
 
@@ -47,7 +47,7 @@ INSERT INTO `word` (`id`, `tag`, `word`) VALUES
 INSERT INTO `translation` (`language_id`, `word_id`, `translation`) VALUES
 ('2',    '1',     '喜歡'),
 ('3',    '1',     '喜欢'),
-('4',    '1',     'aimer');
-('5',    '1',     'gusta')
+('4',    '1',     'aimer'),
+('5',    '1',     'gusta');
 
 
