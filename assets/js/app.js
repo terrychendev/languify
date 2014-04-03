@@ -145,7 +145,7 @@ var	record = {
 		},
 
 		detector : function() {
-			return $("table tbody tr td").on("click", record.switchToInputField);
+			return $("table tbody tr td[data-wordID][data-languageID]").on("click", record.switchToInputField);
 		},
 
 		newRecord : function() {
