@@ -25,42 +25,27 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        Languify
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <div class="navbar-form navbar-right">
-                        @foreach ( $all_languages as $language )
-                            <button class="btn btn-default" data-lang-code="{{ $language->code }}"> 
-                                {{ strtoupper($language->code) }} 
-                            </button>
-                        @endforeach
-                        <button class="btn btn-success" id="filter-languages">
-                            <i class="fa fa-filter fa-lg"></i> Filter
-                        </button>
-                    </div>
-                </div><!--/.navbar-collapse -->
-            </div>
-        </div>
-
         <div class="jumbotron">
             <div class="container">
-                <img class="img-circle pull-left" width="17.5%" src="/assets/img/nerds.jpg">
-                <h1>
-                    Nerds getting started
-                </h1>
-                <p>
-                    YOLO. Swag. Languify v0.1.
-                </p>
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <img class="img-circle" width="100%" src="/assets/img/nerds.jpg">
+                    </div>
+                    <div class="col-md-10">
+                        <h1>Nerds getting started</h1>
+                        <p>
+                            YOLO. Swag. Languify v0.1.
+                            @foreach ( $all_languages as $language )
+                                <button class="btn btn-default" data-lang-code="{{ $language->code }}"> 
+                                    {{ strtoupper($language->code) }} 
+                                </button>
+                            @endforeach
+                            <button class="btn btn-success" id="filter-languages">
+                                <i class="fa fa-filter fa-lg"></i> Filter
+                            </button>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
