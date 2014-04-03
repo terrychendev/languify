@@ -1,19 +1,17 @@
 "use strict";
 var	record = {
-
 		wordId : '',
 		languageId : '',
 		spinner : '<i class="fa fa-spinner fa-spin"></i>',
 
 		switchToInputField : function (event){
 			//Query the IDs from DOM
-			var wordId = $(this).attr("data-wordid");
+			var wordId = $(this).attr("data-wordID");
 			var languageId = $(this).attr("data-languageID");
 			var current_string = $(this).text().replace(/ |\n/g,"");
 
-			var inputField = '<td data-wordid="' + wordId + '" data-languageid="' + languageId + '"><input type="text" name="' + wordId + '#' + languageId + '" value="" ></input></td>';
-
 			//Switch td to some kinda input field
+			var inputField = '<td data-wordID="' + wordId + '" data-languageID="' + languageId + '"><input type="text" name="' + wordId + '#' + languageId + '" value="" ></input></td>';
 			$( this ).replaceWith( inputField );
 
 			$( "table tbody tr td input[name=" + wordId + "#" + languageId + "]" ).trigger("focus").attr( "value" , current_string ).focusout(function(){
@@ -28,7 +26,7 @@ var	record = {
 					if ( new_string != current_string ) {
 
 						//Ready for Ajax Call
-						$( this ).replaceWith( record.spinner );
+						$(this).addClass('disabled');
 
 						//Parsing strings to int
 						wordId = parseInt(wordId);
@@ -51,12 +49,26 @@ var	record = {
 								dataType: "JSON",
 								type: "POST",
 								success : function ( response ) {
-									//self.replaceWith("Success");
-									console.log(response);
+									console.log(response.message);
+									if ( response.status == 'success' ) {
+										self.css('background', '#E5FFDD');
+								        setTimeout(function() {
+								            self.css( 'background', '' );
+								        	self.replaceWith(new_string);
+								        	record.detector();
+								        }, 1500);
+									} else {
+										self.css('background', '#FFB6C1')
+										setTimeout(function() {
+								            self.css( 'background', '' );
+								        	self.replaceWith(current_string);
+								        	record.detector();
+								        }, 1500);
+									}
 								},
 								error : function ( response, status, err ) {
 									console.log(response);
-									alert(err);
+									self.removeClass('disabled');
 								}
 							});
 						}
@@ -78,11 +90,26 @@ var	record = {
 									dataType: "JSON",
 									type: "PUT",
 									success : function ( response ) {
-										//self.replaceWith("Success");
-										console.log(response);
+										console.log(response.message);
+										if ( response.status == 'success' ) {
+											self.css('background', '#E5FFDD');
+									        setTimeout(function() {
+									            self.css( 'background', '' );
+									        	self.replaceWith(new_string);
+									        	record.detector();
+									        }, 1500);
+										} else {
+											self.css('background', '#FFB6C1')
+											setTimeout(function() {
+									            self.css( 'background', '' );
+									        	self.replaceWith(current_string);
+									        	record.detector();
+									        }, 1500);
+										}
 									},
 									error : function ( response ) {
 										console.log(response);
+										self.removeClass('disabled');
 									}
 								});
 							}
@@ -120,19 +147,46 @@ var	record = {
 				}
 				else {
 					//Ajax Call POST Word
-					$( this ).replaceWith( record.spinner );
+					$( this ).addClass('disabled');
 					var data = {
 						word : new_string
 					};
+					var self = $(this);
 					$.ajax({
 						url : '/api/words',
 						data : data,
 						dataType: "JSON",
 						type: "POST",
 						success : function ( response ) {
-							//Check if duplicated data exists
-							//self.replaceWith("Success");
-							console.log(response);
+							console.log(response.message);
+							if ( response.status == 'success' ) {
+								// Show green for success
+								self.css('background', '#E5FFDD');
+						        
+						        // Append the important data attributes to this english cell
+						        self.closest('td').attr('data-wordID', response.word_id);
+						        self.closest('td').attr('data-languageID', '1');
+						        
+						        // Make cells for all relevant translation columns for this word
+						        $('thead tr th[data-languageID]').each(function(key){
+						        	var colLang = $(this).data('languageid');
+						        	if ( colLang != '1' ) {
+						        		self.closest('tr').append('<td data-wordID="'+response.word_id+'" data-languageID="'+colLang+'"></td>');
+						        	}
+						        });
+						        
+						        setTimeout(function() {
+						            self.css( 'background', '' );
+						            self.replaceWith(new_string);
+						        	record.detector();
+						        }, 1500);
+							} else {
+								self.css('background', '#FFB6C1')
+								setTimeout(function() {
+						            self.css( 'background', '' );
+						        	self.removeClass('disabled');
+						        }, 1500);
+							}
 						},
 						error : function ( response ) {
 							console.log(response);
@@ -145,6 +199,7 @@ var	record = {
 		},
 
 		detector : function() {
+			$("table tbody tr td[data-wordID][data-languageID]").off("click", record.switchToInputField);
 			return $("table tbody tr td[data-wordID][data-languageID]").on("click", record.switchToInputField);
 		},
 

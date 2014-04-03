@@ -11,6 +11,7 @@ class word extends CI_Model{
 
     function retrieve( $data = array() ){
         $this->db->where($data);
+        $this->db->order_by('tag', 'asc');
         $query = $this->db->get('word');
         return $query->result();
     }

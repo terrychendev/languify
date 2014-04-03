@@ -16,6 +16,7 @@ class Main extends CI_Controller {
         if ( $user_languages !== false ) {
             // URL has some custom specified languages
             // Parse, then query database, then send to view
+            $user_languages = 'en,' . $user_languages;
             $user_languages = explode(',', $user_languages);
             foreach($user_languages as $key => $user_language){
                 $user_languages[$key] = 'code = "'.$user_language.'"';

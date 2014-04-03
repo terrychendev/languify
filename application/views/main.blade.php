@@ -55,18 +55,17 @@
                 <table class="table table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th>Tag</th>
                             @foreach( $languages as $language )
-                                <th title="{{ ucfirst($language->name) }}" data-langID="{{ $language->id }}">
+                                <th title="{{ ucfirst($language->name) }}" data-languageID="{{ $language->id }}">
                                     {{ strtoupper($language->code) }}
                                 </th>
                             @endforeach
+                            <th>Tag</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ( $words as $word )                             
                             <tr>
-                                <td>fy-{{ $word->tag }}</td>
                                 @foreach ( $languages as $language )
                                     <td data-wordID="{{ $word->id }}" data-languageID="{{ $language->id }}">
                                     @if ( $language->code == 'en' )
@@ -80,6 +79,7 @@
                                     @endif
                                     </td>
                                 @endforeach     
+                                <td>fy-{{ $word->tag }}</td>
                             </tr>
                         @endforeach
                     </tbody>
