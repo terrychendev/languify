@@ -60,6 +60,13 @@ class Core extends CI_Controller {
     }
 
     private function _write_to_library( $language_code = '', $content = '' ) {
+        $pretext =  
+            "/*************************\n".
+            "    Languify library for: ".strtoupper($language_code)."\n".
+            "    Generated on: ".date( 'F j, Y - g.ia' )."\n". 
+            "**************************/\n\n";
+        $content = $pretext . $content;
+
         $handle = fopen( FCPATH . 'library/'. $language_code . '.css', 'w' );
         fwrite($handle, $content); 
         fclose($handle);
