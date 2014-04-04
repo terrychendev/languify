@@ -13,7 +13,7 @@ class Words extends REST_Controller {
         $data = $this->post();
         
         if ( isset($data['word']) ){
-            $word    = $data['word']; 
+            $word = strtolower( $data['word'] ); 
             
             if ( $word != '' ){
                 $word_id = false;
@@ -56,7 +56,7 @@ class Words extends REST_Controller {
         
         if ( isset($data['word_id']) && isset($data['word']) ){
             $word_id = $data['word_id'];
-            $word    = $data['word'];
+            $word    = strtolower( $data['word'] );
 
             $availability = $this->word->retrieve( 
                 array(

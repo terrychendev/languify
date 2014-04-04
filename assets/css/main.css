@@ -1,0 +1,17 @@
+th:after {
+    float: right;
+    content: "\f0dc";
+    font-family: FontAwesome;
+}
+
+th.sorting_asc:after {
+    float: right;
+    content: "\f0d8";
+    font-family: FontAwesome;
+}
+
+th.sorting_desc:after {
+    float: right;
+    content: "\f0d7";
+    font-family: FontAwesome;
+}
