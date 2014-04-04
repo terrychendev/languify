@@ -42,7 +42,29 @@ INSERT INTO `language` (`id`, `code`, `name`) VALUES
 
 
 INSERT INTO `word` (`id`, `tag`, `word`) VALUES
-('1', 'like',     'like');
+('1',    'like',        'like'),
+('2',    'home',        'home'),
+('3',    'about',       'about'),
+('4',    'search',      'search'),
+('5',    'privacy',     'privacy'),
+('6',    'copyright',   'copyright'),
+('7',    'disclaimer',  'disclaimer'),
+('8',    'firefox',     'firefox'),
+('9',    'google',      'google'),
+('10',   'content',     'content'),
+('11',   'add',         'add'),
+('12',   'delete',      'delete'),
+('13',   'bookmark',    'bookmark'),
+('14',   'browse',      'browse'),
+('15',   'chat',        'chat'),
+('16',   'click',       'click'),
+('17',   'mail',        'mail'),
+('18',   'music',       'music'),
+('19',   'picture',     'picture'),
+('20',   'address',     'address'),
+('21',   'buy',         'buy'),
+('22',   'sell',        'sell');
+
 
 INSERT INTO `translation` (`language_id`, `word_id`, `translation`) VALUES
 ('2',    '1',     '喜歡'),
