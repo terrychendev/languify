@@ -210,29 +210,29 @@ var	record = {
 							if ( response.status == 'success' ) {
 								// Show green for success
 								//self.css('background', '#E5FFDD');
-								toastr.success('Word: '+ new_string + ' added');
+								toastr.success('Word: '+ response.word['word'] + ' added');
 
 						        // Append the important data attributes to this english cell
-						        self.closest('td').attr('data-wordID', response.word_id);
+						        self.closest('td').attr('data-wordID', response.word['id']);
 						        self.closest('td').attr('data-languageID', '1');
 
 						        // Make cells for all relevant translation columns for this word
 						        $('thead tr th[data-languageID]').each(function(key){
 						        	var colLang = $(this).data('languageid');
 						        	if ( colLang != '1' ) {
-						        		self.closest('tr').append('<td data-wordID="'+response.word_id+'" data-languageID="'+colLang+'"></td>');
+						        		self.closest('tr').append('<td data-wordID="'+response.word['id']+'" data-languageID="'+colLang+'"></td>');
 						        	}
 						        });
-
+						        self.closest('tr').append('<td>fy-'+response.word['tag']+'</td>');
 						        /*setTimeout(function() {
 						            self.css( 'background', '' );
 						            self.replaceWith(new_string);
 						        	record.detector();
 						        }, 1500);*/
-						        self.replaceWith(new_string);
+						        self.replaceWith(response.word['word']);
 						        record.detector();
 							} else {
-								toastr.error('Word: '+ new_string + ' is duplicated with our record');
+								toastr.error('Word: Insert a valid word');
 								//self.css('background', '#FFB6C1')
 								/*setTimeout(function() {
 						            self.css( 'background', '' );
