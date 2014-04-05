@@ -57,11 +57,11 @@
                         <span class="lead">go figure, dummy</span>
                     </h1>
                     <div class="col-md-6">
-                        1. Load CSS library on HTML page:<br>
+                        <strong>1.</strong> Load CSS library on HTML page:<br>
                         <pre>&lt;link rel="stylesheet" href="//languify.dev/library/en.css"&gt;</pre>
                     </div>
                     <div class="col-md-6">
-                        2. Use these instead of typing words:<br>
+                        <strong>2.</strong> Use these instead of typing words:<br>
                         <pre>&lt;span class="fy-about"&gt;&lt;/span&gt;</pre>
                     </div>
                 </div>
