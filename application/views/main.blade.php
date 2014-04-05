@@ -122,7 +122,13 @@
             <!-- Footer -->
             <footer>
                 <hr>
-                <p>&copy; Languify v{{ CURRENT_VERSION }} - <?= date("Y"); ?></p>
+                <span><a href="#">&copy; Languify v{{ CURRENT_VERSION }} - <?= date("Y"); ?></a></span>
+
+                <span><a href="#">About</a></span>
+
+                <span><a href="#">How it works</a></span>
+
+                <span><a href="#">License</a></span>
             </footer><!-- /.footer -->
         </div><!-- /container -->
         

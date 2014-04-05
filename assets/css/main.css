@@ -39,6 +39,16 @@ tr {
 	font-size:0.9em;
 }
 
+footer{
+	margin-top:100px;
+	text-align: center;
+	margin-bottom:30px;
+}
+
+footer span{
+	margin-right: 60px;
+}
+
 
 @media (min-width: 1200px){
 	input {
