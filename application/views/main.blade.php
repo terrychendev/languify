@@ -117,7 +117,7 @@
             <!-- Footer -->
             <footer>
                 <hr>
-                <p>&copy; Languify v0.1 - <?= date("Y"); ?></p>
+                <p>&copy; Languify v{{ CURRENT_VERSION }} - <?= date("Y"); ?></p>
             </footer><!-- /.footer -->
         </div><!-- /container -->
         
