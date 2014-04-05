@@ -12,3 +12,34 @@ th.sorting_desc:before {
     content: "\f0d7";
     font-family: FontAwesome;
 }
+
+td {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+tr {
+	height:45px;
+	font-size:0.9em;
+}
+
+
+@media (min-width: 1200px){
+	input {
+		width: inherit;
+	}
+}
+
+@media (max-width: 992px){
+	input {
+		width: 60px;
+	}
+}
+
+
+@media (max-width: 768px){
+	input {
+		width: 40px;
+	}
+}
+
