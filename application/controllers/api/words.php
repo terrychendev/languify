@@ -22,12 +22,17 @@ class Words extends REST_Controller {
                     $word_id = $this->_try_insert_word( $word, $count );
                     $count++;
                 }
+                $word = $this->word->retrieve(
+                    array(
+                        'id' => $word_id
+                    )
+                );
 
                 echo json_encode(
                     array(
                         'status' => 'success',
                         'message' => 'Word insert successful',
-                        'word_id' => $word_id
+                        'word' => $word[0]
                     )
                 );
             } else {

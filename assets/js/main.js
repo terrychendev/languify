@@ -44,6 +44,12 @@
         dataTable.fnFilter( $(this).val() );
     });
 
+    // Show getting started
+    $('a#toggle-getting-started').click(function(){
+        $('.row#introduction').toggle('fast');
+        $('.row#getting-started').toggle('fast');
+    });
+
     // Persona logout
     $('.btn#user-logout').click(function(){
         navigator.id.logout()

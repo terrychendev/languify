@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://storyline.dev';
+$config['base_url']	= 'http://languify.dev';
 
 /*
 |--------------------------------------------------------------------------

@@ -1,3 +1,7 @@
+.row#getting-started {
+    display: none;
+}
+
 th:before {
     content: "\f0dc";
     font-family: FontAwesome;
