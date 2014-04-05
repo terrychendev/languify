@@ -12,7 +12,7 @@
         <title>Languify</title>
         <meta name="description" content="Global languages as easy as Font Awesome">
         <meta name="viewport" content="width=device-width">
-        
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,latin-ext,cyrillic,cyrillic-ext">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
@@ -29,8 +29,8 @@
             <div class="container">
                 <header>
                 <div class="row">
-                    <div class="col-md-4 text-center">
-                        <a href="/"><img class="" width="100%" src="/assets/img/logo.png"></a>
+                    <div class="col-md-4 text-left">
+                        <a href="/"><img class="" width="55%" src="/assets/img/logo.png"></a>
                     </div>
                 </header>
                 <div class="row" id="introduction">
@@ -77,7 +77,7 @@
              <div class="table-responsive">
                 <div class="row">
                     <div class="col-md-8">
-                        <i class="fa fa-plus-square fa-2x"> Add New Words</i>
+                        <a href="#"><i class="fa fa-plus-square fa-2x"> Add New Words</i></a>
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="search-box" placeholder="Search words ...">

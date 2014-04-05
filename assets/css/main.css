@@ -1,3 +1,15 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+}
+
+div.jumbotron a, body a, footer{
+	color: #4D5DAA;
+}
+
+div.jumbotron, body a:hover{
+	color: #73C9B8;
+}
+
 .row#getting-started {
     display: none;
 }
