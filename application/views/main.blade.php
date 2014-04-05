@@ -28,10 +28,10 @@
         <div class="jumbotron">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 text-center">
-                        <img class="img-circle" width="100%" src="/assets/img/nerds.jpg">
+                    <div class="col-md-4 text-center">
+                        <img class="" width="100%" src="/assets/img/logo.png">
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                         <h1>Nerds getting started</h1>
                         <p>
                             YOLO. Swag. Languify v0.1.
