@@ -27,14 +27,16 @@
         <![endif]-->
         <div class="jumbotron">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-2 text-center">
+                <div class="row" id="introduction">
+                    <div class="col-sm-2 text-center">
                         <img class="img-circle" width="100%" src="/assets/img/nerds.jpg">
                     </div>
-                    <div class="col-md-10">
-                        <h1>Nerds getting started</h1>
+                    <div class="col-sm-10">
+                        <h1>
+                            <a id="toggle-getting-started" href="#">Nerds</a> getting started...
+                        </h1>
                         <p>
-                            YOLO. Swag. Languify v0.1.
+                            Swag. Languify v{{ CURRENT_VERSION }}
                             @foreach ( $all_languages as $language )
                                 <button class="btn btn-default" data-lang-code="{{ $language->code }}"> 
                                     {{ strtoupper($language->code) }} 
@@ -44,6 +46,23 @@
                                 <i class="fa fa-filter fa-lg"></i> Filter
                             </button>
                         </p>
+                    </div>
+                </div>
+                <div class="row" id="getting-started">
+                    <div class="col-md-1 text-center pull-right">
+                        <a id="toggle-getting-started" href="#">Back</a>
+                    </div>
+                    <h1 class="col-md-11">
+                        Developers understand
+                        <span class="lead">go figure, dummy</span>
+                    </h1>
+                    <div class="col-md-6">
+                        1. Load CSS library on HTML page:<br>
+                        <pre>&lt;link rel="stylesheet" href="//languify.dev/library/en.css"&gt;</pre>
+                    </div>
+                    <div class="col-md-6">
+                        2. Use these instead of typing words:<br>
+                        <pre>&lt;span class="fy-about"&gt;&lt;/span&gt;</pre>
                     </div>
                 </div>
             </div>
