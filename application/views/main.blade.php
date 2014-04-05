@@ -64,7 +64,7 @@
                     <thead>
                         <tr>
                             @foreach( $languages as $language )
-                                <th title="{{ ucfirst($language->name) }}" data-languageID="{{ $language->id }}">
+                                <th class="col-sm-2" title="{{ ucfirst($language->name) }}" data-languageID="{{ $language->id }}">
                                     {{ strtoupper($language->code) }}
                                 </th>
                             @endforeach
